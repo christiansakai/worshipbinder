@@ -1,0 +1,17 @@
+{{template "base" .}}
+
+{{define "main"}}
+<h2>Song Edit</h2>
+
+<form action="/songs/1" method="PUT">
+  <input type="text" name="title">
+  <input type="text" name="author">
+  <input type="text" name="copyright">
+  <input type="text" name="tempo">
+
+  <textarea id="" name="sheet" cols="30" rows="10">
+  </textarea>
+
+  <input type="submit" value="Create">
+</form>
+{{end}}

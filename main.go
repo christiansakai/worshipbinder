@@ -50,5 +50,8 @@ func main() {
       tmpl.Execute(w, nil)
   })
 
+  fs := http.FileServer(http.Dir("web/static"))
+  http.Handle("/static/", http.StripPrefix("/static/", fs))
+
   http.ListenAndServe(":80", nil)
 }

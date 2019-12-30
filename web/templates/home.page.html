@@ -1,5 +1,114 @@
 {{template "base" .}}
 
 {{define "main"}}
-<h1>Home</h1>
+<div class="hero">
+  <div class="hero__logo">
+    <img
+      src="/static/shape@2x.svg"
+      alt="Logo"
+    >
+  </div>
+
+  <h2 class="hero__text">
+    Remnant Westside
+  </h2>
+</div>
+
+<form
+  action="/songs"
+  method="GET"
+  class="search"
+>
+  <input
+    type="text"
+    name="term"
+    class="search__input"
+    placeholder="Search for music sheets"
+  >
+  <input
+    type="submit"
+    value="Search"
+    class="search__button"
+  >
+</form>
+
+<div class="recents">
+  <h3 class="recents__title">
+    Recent Searches
+  </h3>
+
+  <div class="recents__header">
+    <span class="recents__header-title">
+      Title
+    </span>
+
+    <span class="recents__header-artist">
+      Artist
+    </span>
+
+    <span class="recents__header-tempo">
+      Tempo
+    </span>
+
+    <span class="recents__header-meter">
+      Meter
+    </span>
+  </div>
+
+  <ul class="recents__list">
+    <li class="recents__row">
+      <span class="recents__title">
+        Living Hope
+      </span>
+
+      <span class="recents__artist">
+        Phil Wickham
+      </span>
+
+      <span class="recents__tempo">
+        123
+      </span>
+
+      <span class="recents__meter">
+        1/4
+      </span>
+    </li>
+
+    <li class="recents__row">
+      <span class="recents__title">
+        Way Maker
+      </span>
+
+      <span class="recents__artist">
+        Leeland
+      </span>
+
+      <span class="recents__tempo">
+        88
+      </span>
+
+      <span class="recents__meter">
+        1/8
+      </span>
+    </li>
+
+    <li class="recents__row">
+      <span class="recents__title">
+        All Who Are Thirsty
+      </span>
+
+      <span class="recents__artist">
+        Brenton Brown / Glenn Robertson
+      </span>
+
+      <span class="recents__tempo">
+        68
+      </span>
+
+      <span class="recents__meter">
+        1/4
+      </span>
+    </li>
+  </ul>
+</div>
 {{end}}

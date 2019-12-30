@@ -1,15 +1,22 @@
 {{define "base"}}
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    > 
+
     <title>Worship Binder</title>
+    <link rel="stylesheet" href="/static/style.css">
   </head>
   <body>
     {{template "header" .}}
 
-    {{template "main" .}}
-
+    <main class="main">
+      {{template "main" .}}
+    </main>
     {{template "footer" .}}
   </body>
 </html>

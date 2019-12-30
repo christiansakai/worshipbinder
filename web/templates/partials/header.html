@@ -1,3 +1,34 @@
 {{define "header"}}
-<header>Header</header>
+<header class="header">
+  <a
+    class="header__logo"
+    href="/"
+  >
+    <img
+      src="/static/shape@2x.svg"
+      alt="Logo"
+    >
+  </a>
+
+  <nav class="header__nav">
+    <ul class="nav">
+      <li class="nav__item">
+        <a
+          href="/songs"
+          class="nav__link"
+        >
+        Song List
+        </a>
+      </li>
+      <li class="nav__item">
+        <a
+          href="/songs/create"
+          class="nav__link"
+        >
+          New Song
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
 {{end}}
