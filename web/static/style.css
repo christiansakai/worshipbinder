@@ -427,6 +427,19 @@ body {
   margin-left: var(--padding-medium);
 }
 
-.song__copyright {
+.song__footer {
   padding-top: var(--padding-medium);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.song__edit {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--grey);
+}
+
+.song__edit:hover {
+  color: var(--black);
 }

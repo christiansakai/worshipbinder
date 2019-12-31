@@ -1,17 +1,122 @@
 {{template "base" .}}
 
 {{define "main"}}
-<h2>Song Edit</h2>
+<form
+  action="/songs/1"
+  method="PUT"
+  class="form"
+>
+  <div class="form__field">
+    <label
+      for="title"
+      class="form__label"
+    >
+      Title
+    </label>
 
-<form action="/songs/1" method="PUT">
-  <input type="text" name="title">
-  <input type="text" name="author">
-  <input type="text" name="copyright">
-  <input type="text" name="tempo">
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      placeholder="Holy is The LORD"
+    >
+  </div>
 
-  <textarea id="" name="sheet" cols="30" rows="10">
-  </textarea>
+  <div class="form__field">
+    <label
+      for="artist"
+      class="form__label"
+    >
+      Artist
+    </label>
 
-  <input type="submit" value="Create">
+    <input
+      type="text"
+      name="artist"
+      class="form__input form__input--error"
+      placeholder="Chris Tomlin"
+    >
+
+    <span class="form__error">
+      Please enter an artist
+    </span>
+  </div>
+
+  <div class="form__field">
+    <label
+      for="copyright"
+      class="form__label"
+    >
+      Copyright
+    </label>
+
+    <input
+      type="text"
+      name="copyright"
+      class="form__input"
+      placeholder="CCLI #22423"
+    >
+  </div>
+
+  <div class="form__field-group">
+    <div class="form__field">
+      <label
+        for="tempo"
+        class="form__label"
+      >
+        Tempo
+      </label>
+
+      <input
+        type="text"
+        name="tempo"
+        class="form__input"
+        placeholder="78"
+      >
+    </div>
+
+    <div class="form__field">
+      <label
+        for="meter"
+        class="form__label"
+      >
+        Meter
+      </label>
+
+      <input
+        type="text"
+        name="meter"
+        class="form__input"
+        placeholder="1/4"
+      >
+    </div>
+  </div>
+
+  <div class="form__field">
+    <label
+      for="sheet"
+      class="form__label"
+    >
+      Sheet
+    </label>
+
+    <textarea
+      name="sheet"
+      class="form__textarea form__input--error"
+      placeholder="Lyrics and chords here"
+    ></textarea>
+
+    <span class="form__error">
+      Please enter lyrics and chords
+    </span>
+  </div>
+
+  <div class="form__actions">
+    <input
+      type="submit"
+      value="Update"
+      class="form__submit"
+    >
+  </div>
 </form>
 {{end}}
