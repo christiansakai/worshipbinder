@@ -9,6 +9,7 @@
 
   --black: #233329;
   --grey: #CBCBCB;
+  --red: #EB9592;
 }
 
 *,
@@ -68,6 +69,7 @@ body {
   display: inline-block;
   text-decoration: none;
   padding: 2.3rem 1.5rem;
+  letter-spacing: 1.5px;
 }
 
 .nav__link:link,
@@ -95,6 +97,7 @@ body {
   margin: 0 auto;
   text-align: center;
   line-height: 1.5;
+  letter-spacing: 1.5px;
 }
 
 .footer__rwc {
@@ -165,6 +168,7 @@ body {
   border: 1px solid var(--black);
   background-color: #FFF;
   cursor: pointer;
+  letter-spacing: 1.5px;
 }
 
 .search__button:hover {
@@ -225,6 +229,7 @@ body {
 .list__header-tempo,
 .list__header-meter {
   color: var(--grey);
+  letter-spacing: 1.5px;
 }
 
 .list__header-tempo,
@@ -280,6 +285,7 @@ body {
 .list__row-tempo,
 .list__row-meter {
   color: inherit;
+  letter-spacing: 1.5px;
 }
 
 .list__row-artist,
@@ -302,15 +308,88 @@ body {
 
 /* Create / Edit */
 .form__field {
-  margin-bottom: var(--padding-small);
+  margin-bottom: var(--padding-medium);
+}
+
+.form__field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
 }
 
 .form__label {
   display: block;
+  margin-bottom: var(--padding-small);
+  letter-spacing: 1.5px;
 }
 
 .form__input {
   display: block;
+  padding: var(--padding-small);
+  width: 100%;
+  border-radius: 2.5rem;
+  border: 1px solid var(--grey);
+  color: var(--black);
+  letter-spacing: 1.5px;
+}
+
+.form__textarea {
+  resize: none;
+  padding: var(--padding-small);
+  width: 100%;
+  height: 30rem;
+  border-radius: .5rem;
+  border: 1px solid var(--grey);
+  color: var(--black);
+  letter-spacing: 1.5px;
+}
+
+.form__input--error {
+  border: 1px solid var(--red);
+}
+
+.form__error {
+  display: block;
+  margin-top: var(--padding-small);
+  padding-left: var(--padding-small);
+  color: var(--red);
+}
+
+.form__actions {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .form__actions {
+    text-align: right;
+  }
+}
+
+.form__reset {
+  margin-right: var(--padding-small);
+}
+
+.form__reset,
+.form__submit {
+  padding: var(--padding-small) var(--padding-medium);
+  letter-spacing: 1.5px;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #FFF;
+}
+
+.form__reset {
+  border: none;
+}
+
+.form__submit {
+  border-radius: 2.5rem;
+  border: 1px solid var(--black);
+}
+
+.form__submit:hover {
+  background-color: var(--black);
+  color: #FFF;
 }
 
 /* Song Show */
