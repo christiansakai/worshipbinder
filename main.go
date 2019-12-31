@@ -23,6 +23,7 @@ func main() {
         "./web/templates/layout/base.html",
         "./web/templates/partials/header.html",
         "./web/templates/partials/footer.html",
+        "./web/templates/partials/pagination.html",
       ))
 
       tmpl.Execute(w, nil)
@@ -30,7 +31,7 @@ func main() {
 
   http.HandleFunc("/songs/create", func(w http.ResponseWriter, r *http.Request) {
       tmpl := template.Must(template.ParseFiles(
-        "./web/templates/song.form.page.html",
+        "./web/templates/song.create.page.html",
         "./web/templates/layout/base.html",
         "./web/templates/partials/header.html",
         "./web/templates/partials/footer.html",
@@ -42,6 +43,17 @@ func main() {
   http.HandleFunc("/songs/1", func(w http.ResponseWriter, r *http.Request) {
       tmpl := template.Must(template.ParseFiles(
         "./web/templates/song.show.page.html",
+        "./web/templates/layout/base.html",
+        "./web/templates/partials/header.html",
+        "./web/templates/partials/footer.html",
+      ))
+
+      tmpl.Execute(w, nil)
+  })
+
+  http.HandleFunc("/songs/1/edit", func(w http.ResponseWriter, r *http.Request) {
+      tmpl := template.Must(template.ParseFiles(
+        "./web/templates/song.edit.page.html",
         "./web/templates/layout/base.html",
         "./web/templates/partials/header.html",
         "./web/templates/partials/footer.html",

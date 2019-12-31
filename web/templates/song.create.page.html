@@ -1,13 +1,121 @@
 {{template "base" .}}
 
 {{define "main"}}
-<h2>Song Create</h2>
+<form
+  action="/songs"
+  method="POST"
+  class="form"
+>
+  <div class="form__field">
+    <label
+      for="title"
+      class="form__label"
+    >
+      Title
+    </label>
 
-<form action="/songs" method="POST">
-  <input type="text" name="title">
-  <input type="text" name="author">
-  <input type="text" name="copyright">
-  <input type="text" name="tempo">
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
+
+  <div class="form__field">
+    <label
+      for="author"
+      class="form__label"
+    >
+    Author
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
+
+  <div class="form__field">
+    <label
+      for="copyright"
+      class="form__label"
+    >
+      Copyright
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
+
+  <div class="form__field">
+    <label
+      for="title"
+      class="form__label"
+    >
+      Title
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
+  <div class="form__field">
+    <label
+      for="title"
+      class="form__label"
+    >
+      Title
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
+
+  <div class="form__field">
+    <label
+      for="title"
+      class="form__label"
+    >
+      Title
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
+
+  <div class="form__field">
+    <label
+      for="title"
+      class="form__label"
+    >
+      Title
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      class="form__input"
+      required
+    >
+  </div>
 
   <textarea id="" name="sheet" cols="30" rows="10">
   </textarea>
