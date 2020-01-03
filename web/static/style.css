@@ -344,6 +344,20 @@ body {
   letter-spacing: 1.5px;
 }
 
+.form__select {
+  display: block;
+  padding: var(--padding-small);
+  width: 100%;
+  border-radius: 2.5rem;
+  border: 1px solid var(--grey);
+  color: var(--black);
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .form__input--error {
   border: 1px solid var(--red);
 }
