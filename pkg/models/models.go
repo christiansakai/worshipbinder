@@ -8,6 +8,8 @@ type Song struct {
 	ID      int
 	Title   string
 	Artist  string
+  Copyright string
   Tempo   int
-  Sheett  string
+  Meter   string
+  Sheet   string
 }

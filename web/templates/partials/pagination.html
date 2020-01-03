@@ -1,14 +1,19 @@
 {{define "pagination"}}
-<div class="pagination">
-  <span class="pagination__page pagination__page--active">1</span>
-  <span class="pagination__page">2</span>
-  <span class="pagination__page">3</span>
-  <span class="pagination__page">4</span>
-  <span class="pagination__page">5</span>
-  <span class="pagination__page">6</span>
-  <span class="pagination__page">7</span>
-  <span class="pagination__page">8</span>
-  <span class="pagination__page">9</span>
-  <span class="pagination__page">10</span>
-</div>
+<ul class="pagination">
+  {{range .Pages}}
+    {{if .Active}}
+      <li class="pagination__page pagination__page--active">
+        <a href="/songs?page={{.Number}}">
+          {{.Number}}
+        </a>
+      </li>
+    {{else}}
+      <li class="pagination__page">
+        <a href="/songs?page={{.Number}}">
+          {{.Number}}
+        </a>
+      </li>
+    {{end}}
+  {{end}}
+</ul>
 {{end}}

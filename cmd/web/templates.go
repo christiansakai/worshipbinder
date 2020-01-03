@@ -15,6 +15,10 @@ type templateData struct {
 	FormErrors map[string]string
 	Song *models.Song
 	Songs      []*models.Song
+  Pages []struct{
+    Number int
+    Active bool
+  }
 }
 
 func newTemplateCache(dir string) (map[string]*template.Template, error) {

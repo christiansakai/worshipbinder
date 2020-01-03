@@ -23,74 +23,30 @@
   </div>
 
   <ul class="list__items">
-    <li class="list__row">
-      <a
-        class="list__row-link"
-        href="/songs/1"
-      >
-        <span class="list__row-title">
-          Living Hope
-        </span>
+    {{range .Songs}}
+      <li class="list__row">
+        <a
+          class="list__row-link"
+          href="/songs/{{.ID}}"
+        >
+          <span class="list__row-title">
+            {{.Title}}
+          </span>
 
-        <span class="list__row-artist">
-          Phil Wickham
-        </span>
+          <span class="list__row-artist">
+            {{.Artist}}
+          </span>
 
-        <span class="list__row-tempo">
-          123
-        </span>
+          <span class="list__row-tempo">
+            {{.Tempo}}
+          </span>
 
-        <span class="list__row-meter">
-          1/4
-        </span>
-      </a>
-    </li>
-
-    <li class="list__row">
-      <a
-        class="list__row-link"
-        href="/songs/1"
-      >
-        <span class="list__row-title">
-          Waymaker
-        </span>
-
-        <span class="list__row-artist">
-          Leeland
-        </span>
-
-        <span class="list__row-tempo">
-          88
-        </span>
-
-        <span class="list__row-meter">
-          1/8
-        </span>
-      </a>
-    </li>
-
-    <li class="list__row">
-      <a
-        class="list__row-link"
-        href="/songs/1"
-      >
-        <span class="list__row-title">
-          All Who Are Thirsty
-        </span>
-
-        <span class="list__row-artist">
-          Brenton Brown / Glenn Robertson
-        </span>
-
-        <span class="list__row-tempo">
-          68
-        </span>
-
-        <span class="list__row-meter">
-          1/4
-        </span>
-      </a>
-    </li>
+          <span class="list__row-meter">
+            {{.Meter}}
+          </span>
+        </a>
+      </li>
+    {{end}}
   </ul>
 
   {{template "pagination" .}}
