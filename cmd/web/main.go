@@ -8,19 +8,20 @@ import (
 
   // _ "github.com/lib/pq"
 
-	// "worshipbinder/pkg/models"
+	"worshipbinder/pkg/models"
 )
 
 type application struct {
   debug bool
 	errorLog      *log.Logger
-// 	infoLog       *log.Logger
+	infoLog       *log.Logger
   templateCache map[string]*template.Template
-// 	songs      interface {
-// 		Insert(string, string, string) (int, error)
-// 		Get(int) (*models.Song, error)
-// 		List() ([]*models.Song, error)
-// 	}
+	songs      interface {
+		Insert(string, string, string, int, string, string) (int, error)
+		Get(int) (*models.Song, error)
+		List() ([]*models.Song, error)
+		Count() (int, error)
+	}
 }
 
 func main() {
@@ -28,7 +29,7 @@ func main() {
   addr := ":4000"
   // dsn := "postgres://jesusisking:isaiah96@localhost/worshipbinder"
 
-	// infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
 	// db, err := openDB(*dsn)
@@ -46,12 +47,12 @@ func main() {
 	app := &application{
     debug: debug,
 		errorLog:      errorLog,
-		// infoLog:       infoLog,
+		infoLog:       infoLog,
 		templateCache: templateCache,
-		// songs:          &mysql.SongModel{DB: db},
+		songs:         &models.SongModel{},
 	}
 
-	// infoLog.Printf("Starting server on %s", *addr)
+	infoLog.Printf("Starting server on %s", addr)
 
   r := app.routes()
 

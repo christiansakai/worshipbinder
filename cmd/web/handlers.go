@@ -2,8 +2,7 @@ package main
 
 import (
   "net/http"
-
-	"worshipbinder/pkg/models"
+  "fmt"
 )
 
 func (a *application) renderHome(w http.ResponseWriter, r *http.Request) {
@@ -11,48 +10,44 @@ func (a *application) renderHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *application) renderSongList(w http.ResponseWriter, r *http.Request) {
-  songs := []*models.Song{
-    &models.Song{
-      ID: 1,
-      Title: "Living Hope",
-      Artist: "Phil Wickham",
-      Copyright: "Public Domain",
-      Tempo: 123,
-      Meter: "1/4",
-      Sheet: "Liiiiiiiviiiiinggg hoooopeeeee",
-    },
-    &models.Song{
-      ID: 2,
-      Title: "Waymaker",
-      Artist: "Leeland",
-      Copyright: "Public Domain",
-      Tempo: 88,
-      Meter: "1/8",
-      Sheet: "Waaaaaaaymaakerr",
-    },
-    &models.Song{
-      ID: 3,
-      Title: "All Who Are Thirsty",
-      Artist: "Brenton Brown / Glenn Robertson",
-      Copyright: "Public Domain",
-      Tempo: 68,
-      Meter: "1/4",
-      Sheet: "THIRSTYYYY",
-    },
+  songs, err := a.songs.List()
+	if err != nil {
+		a.serverError(w, err)
+		return
+	}
+
+  totalSongsCount, err := a.songs.Count() 
+	if err != nil {
+		a.serverError(w, err)
+		return
+	}
+
+  songsPerPage := 10
+  pageCount := totalSongsCount / songsPerPage
+  currPage := 1
+
+  pages := make([]struct{
+    Number int
+    Active bool
+  }, pageCount) 
+
+  for i := 0; i < pageCount; i++ {
+    if i == currPage {
+      pages[i] = struct{
+        Number int
+        Active bool
+      }{i + 1, true}
+    } else {
+      pages[i] = struct{
+        Number int
+        Active bool
+      }{i + 1, false}
+    }
   }
 
   data := templateData{
     Songs: songs,
-    Pages: []struct{
-      Number int
-      Active bool
-    }{
-      {1, true},
-      {2, false},
-      {3, false},
-      {4, false},
-      {5, false},
-    },
+    Pages: pages,
   }
 
 	a.render(w, r, "song.list.html", &data)
